@@ -23,3 +23,24 @@ def setup_kb():
             ids=[d["id"] for d in documents]
         )
     return embedder, collection
+
+from langgraph.graph import StateGraph, END
+from langgraph.checkpoint.memory import MemorySaver
+
+class CapstoneState(TypedDict):
+    question: str
+    messages: List[BaseMessage]
+    route: str
+    retrieved: str
+    sources: List[str]
+    tool_result: str
+    answer: str
+    faithfulness: float
+    eval_retries: int
+    user_name: str
+
+def create_graph(llm, embedder, collection):
+    g = StateGraph(CapstoneState)
+    # nodes to be implemented
+    checkpointer = MemorySaver()
+    return g.compile(checkpointer=checkpointer)
