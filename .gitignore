@@ -30,3 +30,4 @@ Thumbs.db
 
 # Ollama model cache (not needed in repo)
 # Models are pulled locally via: ollama pull qwen2.5:3b
+report.html
