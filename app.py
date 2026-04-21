@@ -1,6 +1,6 @@
 import streamlit as st
 import uuid
-from agent import get_llm, setup_kb, create_graph
+from bot import get_llm, setup_kb, create_graph
 
 st.set_page_config(page_title="E-Commerce FAQ Bot", page_icon="🛒", layout="wide")
 
